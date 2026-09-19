@@ -214,7 +214,7 @@ if ($sent) {
       <p>In the meantime, feel free to call or WhatsApp us directly:</p>
       <a href='tel:+917290025800' class='btn'>📞 Call: +91 72900 25800</a>
 
-      <p style='color:#888; font-size:13px;'>Mon–Sat · 9 AM to 7 PM IST</p>
+      <p style='color:#888; font-size:13px;'>Mon–Sun · 10 AM to 7 PM IST</p>
     </div>
     <div class='footer'>
       © " . date('Y') . " " . SITE_NAME . " &nbsp;|&nbsp; 90, Mehrauli-Gurgaon Rd, Sector 14, Gurugram, Haryana 122001
