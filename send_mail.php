@@ -23,6 +23,11 @@ $course      = clean($_POST['course']      ?? '');
 $city        = clean($_POST['city']        ?? 'Gurgaon');
 $action_type = clean($_POST['action_type'] ?? 'Course Enquiry / Demo');
 $page_url    = clean($_POST['page_url']    ?? '');
+$utm_source  = clean($_POST['utm_source']  ?? '');
+$utm_medium  = clean($_POST['utm_medium']  ?? '');
+$utm_campaign= clean($_POST['utm_campaign']?? '');
+$utm_term    = clean($_POST['utm_term']    ?? '');
+$gclid       = clean($_POST['gclid']       ?? '');
 
 // Required fields
 if (empty($name) || empty($phone) || empty($email)) {
@@ -49,6 +54,11 @@ $payload = json_encode([
     "course"      => $course,
     "city"        => $city,
     "action_type" => $action_type,
+    "utm_source"  => $utm_source,
+    "utm_medium"  => $utm_medium,
+    "utm_campaign"=> $utm_campaign,
+    "utm_term"    => $utm_term,
+    "gclid"       => $gclid,
     "page_url"    => $page_url
 ]);
 
@@ -124,6 +134,20 @@ $body = "
         <div class='label'>Enquiry Type</div>
         <div class='value'>" . (!empty($action_type) ? $action_type : 'Course Enquiry / Demo') . "</div>
       </div>
+
+      " . (!empty($utm_source) ? "
+      <div class='field'>
+        <div class='label'>Google Ads Source / Campaign</div>
+        <div class='value'>Source: {$utm_source} | Medium: {$utm_medium} | Campaign: {$utm_campaign} | Keyword: {$utm_term}</div>
+      </div>
+      " : "") . "
+
+      " . (!empty($gclid) ? "
+      <div class='field'>
+        <div class='label'>Google Click ID (GCLID)</div>
+        <div class='value'>{$gclid}</div>
+      </div>
+      " : "") . "
 
       <div class='field'>
         <div class='label'>Page URL</div>
